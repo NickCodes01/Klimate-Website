@@ -1,0 +1,15 @@
+<p> Reviews: </p>
+  <ul>
+  {{#each business.reviews}}
+  <li>
+    Title: {{this.title}}<br>
+    Reviewer Name: {{this.reviewerName}}<br>
+    Review: {{this.review}}<br>
+    Rating: {{this.rating}}<br>
+    Review Date: {{this.reviewDate}}<br>
+    <br>
+  </li>
+  {{/each}}
+  </ul>
+
+  <p> Average Rating: {{ business.averageRating }}</p>

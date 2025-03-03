@@ -1,0 +1,68 @@
+<article class="new-review">
+  <h1>Add a Review:</h1>
+  <form id="review-form" action="/reviews" method="POST">
+
+  <label>
+      Business ID
+      <input type="text" name="businessId" placeholder="Business ID" class="full-width-input">
+    </label>
+
+<br>
+<br>
+  
+    <label>
+      Review Title
+      <input type="text" name="title" placeholder="Review Title" class="full-width-input">
+    </label>
+
+<br>
+<br>
+
+    <label>
+      Reviewer Name
+      <input type="text" name="reviewerName" placeholder="Reviewer Name" class="full-width-input">
+    </label>
+
+<br>
+<br>
+
+    <label>
+      Review
+      <input type="text" name="review" placeholder="Review" class="full-width-input">
+    </label>
+
+<br>
+<br>
+
+    {{!-- <label for="business-description">
+      Reting
+    </label>
+    <textarea id="business-description" name="description" placeholder="Business Description"
+      class="full-width-input">{{business/reviews.rating}}</textarea> --}}
+
+    <label>
+      Rating
+      <input type="text" name="rating" placeholder="Rating" class="full-width-input">
+    </label>
+
+    {{!-- <label>
+      Review Date
+      <input type="text" name="review date" placeholder="Review Date" class="full-width-input">
+    </label> --}}
+
+   
+    <br>
+    <br>
+    <br>
+    <button type="submit">Add Review</button>
+    <button type="reset">Clear Form</button>
+    {{!-- <input type="hidden" name='_method' value="PUT" /> --}}
+  </form>
+ 
+ <br>
+ <br>
+
+  <a href="/login">Back to User Page</a>
+</article>
+
+

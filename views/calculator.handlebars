@@ -1,0 +1,70 @@
+
+    <h1>Carbon Footprint Calculator</h1>
+    <form class="server-form" action="/calculator" method="post" id="carbonForm">
+        <div class="form-group">
+            <label for="electricBill">Monthly Electric Bill ($):</label>
+            <input type="number" id="electricBill" name="electricBill" value="{{electricBill}}" required><br>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="gasBill">Monthly Gas Bill ($):</label>
+            <input type="number" id="gasBill" name="gasBill" value="{{gasBill}}" required><br>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="oilBill">Monthly Oil Bill ($):</label>
+            <input type="number" id="oilBill" name="oilBill" value="{{oilBill}}" required><br>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="carMileage">Total Yearly Mileage on Your Car:</label>
+            <input type="number" id="carMileage" name="carMileage" value="{{carMileage}}" required><br>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="shortFlights">Number of Short Flights (4 hours or less):</label>
+            <input type="number" id="shortFlights" name="shortFlights" value="{{shortFlights}}" required><br>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="longFlights">Number of Long Flights (4 hours or more):</label>
+            <input type="number" id="longFlights" name="longFlights" value="{{longFlights}}" required><br>
+        </div>
+        <br>
+         <div class="form-group">
+            <label for="recycleNewspaper">Do you recycle newspaper?</label>
+            <input type="checkbox" id="recycleNewspaper" name="recycleNewspaper" value="{{recycleNewspaper}}" ><br>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="recycleMetal">Do you recycle aluminum and tin?</label>
+            <input type="checkbox" id="recycleMetal" name="recycleMetal" value="{{recycleMetal}}" ><br>
+        </div> 
+        <br>
+
+        {{#if error }}
+        <div class="form-group" id="error_div">
+            <div class="alert alert-danger">
+                {{ error }}
+            </div>
+        </div>
+    
+        {{/if}}
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Calculate your Carbon Footprint</button>
+        </div>
+        {{#if result includeZero=true }}
+        <br>
+        <div class="form-group" id="result_div">
+            <div class="alert alert-success">
+             <span class="result-footprint">Your carbon footprint is: {{ result }}</span>
+            </div>
+        </div>
+        {{/if}}
+    </form>
+
+
+
+    <p>The average Carbon Footprint is between 16,000-22,000</p>
+
+

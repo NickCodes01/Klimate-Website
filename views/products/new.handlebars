@@ -1,0 +1,34 @@
+<article class="new-product">
+  <h1>Add a Project</h1>
+  <form action="/products/index" method="POST" class="new-post-form">
+    <label>
+      Product Name:
+      <input type="text" name="productName" placeholder="Product Name" value="{{product.productName}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Description:
+      <input type="text" name="description" placeholder="Description" value="{{product.description}}" class="full-width-input">
+    </label>
+
+
+   
+    <br>
+    <button type="submit">Add New Product</button>
+    <button type="reset">Clear Form</button>
+    {{!-- <input type="hidden" name='_method' value="PUT" /> --}}
+  </form>
+
+  
+  {{#if hasErrors}}
+  <ul class="error-list">
+    {{#each errors}}
+    <li>
+      {{this}}
+    </li>
+    {{/each}}
+  </ul>
+  {{/if}}
+
+</article>

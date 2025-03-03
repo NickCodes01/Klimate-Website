@@ -1,0 +1,68 @@
+<article class="new-business">
+  <h2>Add a Business</h2>
+  <form action="/businesses" method="POST" class="new-post-form">
+    <label>
+      Business Name:
+      <input type="text" name="businessName" placeholder="Business Name" value="{{business.businessName}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Business Type:
+      <input type="text" name="type" placeholder="Business Type" value="{{business.type}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Business Address:
+      <input type="text" name="address" placeholder="Business Address" value="{{business.address}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label for="business-description">
+      Business Description:
+    </label>
+    <textarea id="business-description" name="description" rows="4" placeholder="Business Description"
+      class="full-width-input">{{business.description}}</textarea>
+<br>
+<br>
+    <label>
+      Business Website:
+      <input type="text" name="link" placeholder="Business Website" value="{{business.link}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Business Phone Number:
+      <input type="text" name="phoneNumber" placeholder="Business Number" value="{{business.phoneNumber}}" class="full-width-input">
+    </label>
+<br>
+
+
+    <br>
+    <button type="submit">Add New Business</button>
+    <button type="reset">Clear Form</button>
+    {{!-- <input type="hidden" name='_method' value="PUT" /> --}}
+  </form>
+
+
+
+
+
+
+
+
+
+  {{#if hasErrors}}
+  <ul class="error-list">
+    {{#each errors}}
+    <li>
+      {{this}}
+    </li>
+    {{/each}}
+  </ul>
+  {{/if}}
+
+</article>
+
+{{!-- <script src="/public/js/client_side_validation.js"></script> --}}

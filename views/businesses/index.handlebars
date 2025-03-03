@@ -1,0 +1,69 @@
+{{!-- <section>
+  <h1>Sustainable Businesses</h1>
+  {{#each business}}
+  <article class="business">
+    <h2><a href="/businesses/{{_id}}">{{name}}</a></h2>
+    <p>{{body}}</p>
+  </article>
+  {{/each}}
+</section> --}}
+
+
+
+<section>
+  <h2>Sustainable Businesses</h2>
+  {{#each businesses}}
+  <article class="business">
+    <h2><a href="/businesses/{{_id}}">{{businessName}}</a> <button id="b1-{{_id}}" class="favB" data-business-id="{{_id}}">Favorite</button></h2> 
+    <p>{{body}}</p>
+
+{{!-- <button class="favB" data-business-id="{{_id}}">Favorite Business</button> --}}
+
+  </article>
+  {{/each}}
+</section>
+
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fav = document.querySelectorAll('.favB');
+
+    if (fav) {
+      fav.forEach(function(button) {
+        const businessId = button.dataset.businessId;
+        const isFavorite = localStorage.getItem(`favorite_${businessId}`);
+
+        if (isFavorite) {
+          button.classList.add('favorited');
+        }
+
+        button.addEventListener('click', function() {
+          this.classList.toggle('favorited');
+          const isOn = this.classList.contains('favorited');
+
+          if (isOn) {
+            localStorage.setItem(`favorite_${businessId}`, 'true');
+          }
+          else {
+            localStorage.removeItem(`favorite_${businessId}`);
+          }
+        });
+        
+      });
+    }
+  });
+
+  function emptyLogout() {
+    for (let i=0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+
+      if (key.startsWith('favorite_')) {
+        localStorage.removeItem(key);
+      }
+    }
+  }
+  
+</script>

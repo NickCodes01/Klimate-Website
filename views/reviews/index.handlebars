@@ -1,0 +1,9 @@
+<section>
+  <h1>Add a Review</h1>
+  {{#each reviews}}
+  <article class="review">
+    <h2><a href="/reviews/{{_id}}">{{title}}</a></h2>
+    <p>{{body}}</p>
+  </article>
+  {{/each}}
+</section>

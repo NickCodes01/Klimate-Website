@@ -1,0 +1,66 @@
+<article class="new-forum">
+  <h2>Add to Forum</h2>
+  <form action="/forums" method="POST" class="new-post-form">
+    <label>
+      User ID:
+      <input type="text" name="userId" placeholder="User ID/ Email" value="{{forum.userId}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Text:
+      <input type="text" name="text" placeholder="Text" value="{{forum.text}}" class="full-width-input">
+    </label>
+
+    {{!-- <label for="business-description">
+      Business Description
+    </label>
+    <textarea id="business-description" name="description" rows="4" placeholder="Business Description"
+      class="full-width-input">{{business.description}}</textarea>
+
+     --}}
+
+   <br>
+    <br>
+    <button type="submit">Add to Forum</button>
+    <button type="reset">Clear Form</button>
+    {{!-- <input type="hidden" name='_method' value="PUT" /> --}}
+  </form>
+  {{#if hasErrors}}
+  <ul class="error-list">
+    {{#each errors}}
+    <li>
+      {{this}}
+    </li>
+    {{/each}}
+  </ul>
+  {{/if}}
+
+  {{#if missingFieldsError}}
+  <p class="error-message">Both userId and text must be input!</p>
+{{/if}}
+
+</article>
+
+<br>
+<br>
+<br>
+
+{{#unless hasErrors}}
+<section>
+  <h2>Forum</h2>
+  <p>Click on the users below to view their posts!</p>
+  {{#each forums}}
+  <article class="forums">
+    <h2><a href="/forums/{{_id}}">{{userId}}</a></h2>
+    
+    <p>{{body}}</p>
+  </article>
+  {{/each}}
+</section>
+{{/unless}}
+
+
+
+
+

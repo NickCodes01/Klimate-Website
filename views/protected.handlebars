@@ -1,0 +1,36 @@
+{{!--
+
+If the user is logged in , and 'GET /protected' endpoint is called, you will render this view based on the specs.
+
+--}}
+
+<h2>Welcome {{user.firstName}} {{user.lastName}}  - {{user.emailAddress}}</h2>
+<p>Date Joined: {{currentTime}}.</p>
+<p>Your role in the system is: {{role}}</p>
+{{#if AD}}
+<img class="quarter-size" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/big-letter-a-typography-art-with-patterned-background-series-001-design-turnpike.jpg" alt="default">
+<p id="pIDa"><a href="/admin">Go to Admin Route</a></p>
+{{else}}
+<img class="quarter-size" src="https://templates-for-printing.com/wp-content/uploads/2020/11/U-Capital-Letter-Red-with-black-contours.jpg" alt="default">
+{{/if}}
+<p id="logout-link"><a href="/logout">Logout</a></p>
+
+
+<script>
+    function emptyLogout() {
+    for (let i=0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+
+      if (key.startsWith('favorite_')) {
+        localStorage.removeItem(key);
+      }
+    }
+  }
+
+  const logoutLink = document.getElementById('logout-link');
+  if (logoutLink) {
+    logoutLink.addEventListener('click', function(event) {
+        emptyLogout();
+    }); 
+  }
+</script>

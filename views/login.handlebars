@@ -1,0 +1,41 @@
+{{!--
+
+login form handlebar template
+
+--}}
+
+<h1>Welcome to Klimate!</h1>
+<br>
+<p>Klimate is an interactive platform designed to empower individuals to take meaningful <br> 
+action against climate change by way of supporting sustainable businesses. <br> 
+Klimate encourages community engagement and is dedicated to combating climate change and fostering <br> 
+a greener, more sustainable future, enabling individuals to make informed choices that align with their environmental values. 
+</p>
+
+
+<p>Please login below or register for an account to access our member privileges</p>
+
+<br>
+<br>
+<br>
+
+<h2>Login</h2>
+<form id="login-form" action="/login" method="POST">
+    <div>
+        <label for="emailAddressInput">Email Address:</label>
+        <input type="email" placeholder="Email" id="emailAddressInput" name="emailAddress" required>
+    </div>
+    <br>
+    <div>
+        <label for="passwordInput">Password:</label>
+        <input type="password" placeholder="Password" id="passwordInput" name="password" required>
+    </div>
+    <br>
+    <button type="submit">Login</button>
+</form>
+<p>Don't have an account? <a href="{{ registrationLink }}">Click here to register!</a></p>
+
+
+{{#if error}}
+<p id="pError">{{error}}</p>
+{{/if}}

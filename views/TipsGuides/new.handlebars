@@ -1,0 +1,52 @@
+<article class="new-TG">
+  <h1>Add a Tip or Guide</h1>
+  <form id="tipform" action="/TipsGuides" method="POST" class="new-post-form">
+    <label>
+      Author:
+      <input type="text" name="author" placeholder="Author" value="{{TG.author}}" class="full-width-input" required>
+    </label>
+<br>
+<br>
+    <label>
+      Title:
+      <input type="text" name="title" placeholder="Title" value="{{TG.title}}" class="full-width-input" required>
+    </label>
+<br>
+<br>
+    <label>
+      Text:
+      <input type="text" name="text" placeholder="Text" value="{{TG.text}}" class="full-width-input" required>
+    </label>
+<br>
+<br>
+
+   
+    <br>
+    <button type="submit">Add New Tip or Guide</button>
+    <button type="reset">Clear Form</button>
+    {{!-- <input type="hidden" name='_method' value="PUT" /> --}}
+  </form>
+
+
+  {{#if hasErrors}}
+  <ul class="error-list">
+    {{#each errors}}
+    <li>
+       
+      {{this}}
+    </li>
+    {{/each}}
+  </ul>
+  {{/if}}
+
+</article>
+
+<script>
+document.getElementById('tipform').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    
+    // Clear the form
+    this.reset();
+    window.location.reload();
+});
+</script>

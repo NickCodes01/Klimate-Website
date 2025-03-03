@@ -1,0 +1,39 @@
+<article class="new-forum">
+  <h1>Add to Forum</h1>
+  <form action="/forum" method="POST" class="new-post-form">
+    <label>
+      User ID
+      <input type="text" name="userId" placeholder="User ID" value="{{forum.userId}}" class="full-width-input" required>
+    </label>
+<br>
+<br>
+    <label>
+      Text
+      <input type="text" name="text" placeholder="Text" value="{{forum.text}}" class="full-width-input" required>
+    </label>
+
+    {{!-- <label for="business-description">
+      Business Description
+    </label>
+    <textarea id="business-description" name="description" rows="4" placeholder="Business Description"
+      class="full-width-input">{{business.description}}</textarea>
+
+     --}}
+
+   
+    <br>
+    <button type="submit">Add to Forum</button>
+    <button type="reset">Clear Form</button>
+    {{!-- <input type="hidden" name='_method' value="PUT" /> --}}
+  </form>
+  {{#if hasErrors}}
+  <ul class="error-list">
+    {{#each errors}}
+    <li>
+      {{this}}
+    </li>
+    {{/each}}
+  </ul>
+  {{/if}}
+
+</article>

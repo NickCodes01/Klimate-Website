@@ -1,0 +1,68 @@
+<article class="new-project">
+  <h2>Add a Project</h2>
+  <form action="/projects/index" method="POST" class="new-post-form">
+    <label>
+      Project Name:
+      <input type="text" name="projectName" placeholder="Project Name" value="{{project.projectName}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Event Location:
+      <input type="text" name="eventLocation" placeholder="Event Location" value="{{project.eventLocation}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Event Date:
+      <input type="text" name="eventDate" placeholder="Event Date" value="{{project.eventDate}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Description:
+      <input type="text" name="description" placeholder="Description" value="{{project.description}}" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Link:
+      <input type="text" name="link" placeholder="Link" value="{{project.link}}" class="full-width-input">
+    </label>
+<br>
+<br>
+
+   
+    <br>
+    <button type="submit">Add New Project</button>
+    <button type="reset">Clear Form</button>
+    {{!-- <input type="hidden" name='_method' value="PUT" /> --}}
+  </form>
+
+  
+  {{#if hasErrors}}
+  <ul class="error-list">
+    {{#each errors}}
+    <li>
+      {{this}}
+    </li>
+    {{/each}}
+  </ul>
+  {{/if}}
+
+</article>
+
+<br>
+<br>
+<br>
+
+
+<section>
+  <h2>Projects</h2>
+  {{#each projects}}
+  <article class="project">
+    <h2><a href="/projects/{{_id}}">{{projectName}}</a></h2>
+    <p>{{body}}</p>
+  </article>
+  {{/each}}
+</section>

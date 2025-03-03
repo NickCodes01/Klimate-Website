@@ -1,0 +1,53 @@
+{{!--
+
+If the user is logged in and they are an admin user, and 'GET /admin' endpoint is called, you will render this view
+based on the specs.
+
+
+
+--}}
+
+
+<h2>
+    Welcome {{user.firstName}} {{user.lastName}} - {{user.emailAddress}}
+</h2>
+
+
+<p>
+    Date Joined: {{currentTime}}. <br>
+    <br>
+    You are an admin. You can access both the admin page and the protected/ user page!!
+</p>
+
+<img class="quarter-size" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/big-letter-a-typography-art-with-patterned-background-series-001-design-turnpike.jpg" alt="default">
+
+
+<br>
+<br>
+<br>
+
+
+
+<a id="aIDa" href="/protected">Go to Protected (User) Route</a>
+<br>
+<a id="logout-link" href="/logout">Logout</a>
+
+
+<script>
+    function emptyLogout() {
+    for (let i=0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+
+      if (key.startsWith('favorite_')) {
+        localStorage.removeItem(key);
+      }
+    }
+  }
+
+  const logoutLink = document.getElementById('logout-link');
+  if (logoutLink) {
+    logoutLink.addEventListener('click', function(event) {
+        emptyLogout();
+    }); 
+  }
+</script>

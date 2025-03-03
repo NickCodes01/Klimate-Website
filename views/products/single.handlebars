@@ -1,0 +1,79 @@
+<article class="product">
+  <h2>{{ product.productName }}</h2>
+
+  <p> Description: {{ product.description }}</p>
+  
+  
+  <a href="/products">Back to Products Page</a>
+</article>
+
+<br>
+<br>
+
+<p> Reviews: </p>
+  <ul>
+  {{#each product.reviews}}
+  <li>
+    Title: {{this.title}}<br>
+    Reviewer Name: {{this.reviewerName}}<br>
+    Review: {{this.review}}<br>
+    Rating: {{this.rating}}<br>
+    Review Date: {{this.reviewDate}}<br>
+    <br>
+  </li>
+  {{/each}}
+  </ul>
+
+  <p> Average Rating: {{ product.averageRating }}</p>
+
+
+  <br>
+
+<br>
+<br>
+<br>
+
+
+<article class="new-review">
+  <h2>Add a Review:</h2>
+  <form id="review-form" action="/products/{{product._id}}/productReviews" method="POST">
+    
+    
+      <input type="hidden" name="businessId" value="{{business._id}}">
+    
+
+<br>
+<br>
+    <label>
+      Review Title
+      <input type="text" name="title" placeholder="Review Title" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Reviewer Name
+      <input type="text" name="reviewerName" placeholder="Reviewer Name" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Review
+      <input type="text" name="review" placeholder="Review" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Rating
+      <input type="number" name="rating" placeholder="Rating" class="full-width-input">
+    </label>
+<br>  
+    <br>
+    <button type="submit">Add Review</button>
+    <button type="reset">Clear Form</button>
+    
+  </form>
+ 
+ <br>
+  
+  <a href="/products">Back to Product Page</a>
+</article>

@@ -1,0 +1,85 @@
+
+<article class="business">
+  <h2>{{ business.businessName }}</h2>
+
+  <p> Business Type: {{ business.type }}</p>
+  <p> Address: {{ business.address }}</p>
+  <p> Description: {{ business.description }}</p>
+  <p> Website Link: {{ business.link }}</p>
+  <p> Phone Number: {{ business.phoneNumber }}</p>
+
+  <p> Reviews: </p>
+  <ul>
+  {{#each business.reviews}}
+  <li>
+    Title: {{this.title}}<br>
+    Reviewer Name: {{this.reviewerName}}<br>
+    Review: {{this.review}}<br>
+    Rating: {{this.rating}}<br>
+    Review Date: {{this.reviewDate}}<br>
+    <br>
+  </li>
+  {{/each}}
+  </ul>
+
+  <p> Average Rating: {{ business.averageRating }}</p>
+
+</article>
+  <br>
+
+
+<article class="new-review">
+  <h2>Add a Review:</h2>
+  <form id="review-form" action="/businesses/{{business._id}}/reviews" method="POST">
+    
+    
+      <input type="hidden" name="businessId" value="{{business._id}}">
+    
+
+<br>
+<br>
+    <label>
+      Review Title
+      <input type="text" name="title" placeholder="Review Title" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Reviewer Name
+      <input type="text" name="reviewerName" placeholder="Reviewer Name" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Review
+      <input type="text" name="review" placeholder="Review" class="full-width-input">
+    </label>
+<br>
+<br>
+    <label>
+      Rating
+      <input type="number" name="rating" placeholder="Rating" class="full-width-input">
+    </label>
+<br>  
+    <br>
+    <button type="submit">Add Review</button>
+    <button type="reset">Clear Form</button>
+    
+  </form>
+ 
+ <br>
+  
+  <a href="/businesses">Back to Business Page</a>
+
+  {{#if hasErrors}}
+  <ul class="error-list">
+    {{#each errors}}
+    <li>
+      {{this}}
+    </li>
+    {{/each}}
+  </ul>
+  {{/if}}
+
+</article>
+
