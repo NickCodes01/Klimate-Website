@@ -4,4 +4,5 @@ Klimate is an interactive platform designed to empower individuals to take meani
 
 This is a group project developed for the Web Development course in the MSc Computer Science program. While the project was a team effort, I was responsible for the entire backend development and contributed significantly to the front-end design and functionality as well.
 
-![image](https://github.com/user-attachments/assets/1b2e0437-4f8d-42fd-9974-a9f8cb6eb68c)
+![image](https://github.com/user-attachments/assets/ff0594eb-4ccf-4765-ac81-ccd45d996410)
+
